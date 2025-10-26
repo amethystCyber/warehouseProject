@@ -7,8 +7,8 @@ body{
 }
 #playerStats{
     position: absolute;
-    top: 3%;
-    left: 3%;
+    top: 5%;
+    left: 5%;
     width: fit-content;
     height: fit-content;
     display: flex;
@@ -23,8 +23,8 @@ body{
     background-image: url("breakroom.jpg");
     background-position: center;
     background-size: cover;
-    width: 800px;
-    height: 800px;
+    width: 850px;
+    height: 850px;
     margin-bottom: 10px;
     position: absolute;
     left: 50%;
@@ -37,19 +37,37 @@ body{
     position: relative;
     top: 40%;
     left: 35%;
+    cursor: pointer;
 }
 #controls{
     display: flex;
     flex-direction: column;
     width: fit-content;
+    height: fit-content;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 80%;
+    right: 5%;
+    top: 5%;
+    background-color: black;
+    padding: 10px;
 }
 #controls button{
-    font-size: larger;
+    background-color: black;
+    color: white;
     font-weight: bolder;
+    font-size: large;
+}
+#chat{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    border: solid 1px black;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 10px;
+    font-size: 36px;
 }
 </style>
 </head>
@@ -60,7 +78,8 @@ body{
 
 
 <div id="background">
-    <div id="person"></div>
+    <div onclick="talkToThomas()" id="person"></div>
+    <div id="chat"></div>
 </div>
 
 <div id="playerStats">
@@ -77,13 +96,51 @@ body{
 
 
 <script>
+//initially we hide the chat element by default then bring it up when someone talks
+
+document.getElementById('chat').style.display = "none";
+
 let player = {
     name: "marcelo",
     exp: 0
 }
 
-if (player.exp <= 0) {
+if (player.exp === 0) {
     showThomas();
+}
+
+let thomasIndex = 0;
+let thomasDialouge = [
+    "Hello! Welcome to Kobayashi Industries.",
+    "Since this is your first day i'll be giving you a small tour.",
+    "OH man! where are my manners my name is Thomas by the way.. whats your name?"
+]
+
+function talkToThomas(){
+    showThomas();
+    showChatBubble();
+    updateChat(thomasDialouge[thomasIndex]);
+    thomasIndex++;
+    if (thomasIndex >= 3) {
+        setTimeout(removeChatBubble, 3200);
+        thomasIndex = 0;
+    }
+}
+
+function showChatBubble(){
+    document.getElementById('chat').style.display = "block";
+}
+
+function removeChatBubble(){
+    document.getElementById('chat').style.display = "none";
+}
+
+function updateChat(message){
+    document.getElementById('chat').innerText = message;
+}
+
+function clearChat(){
+    document.getElementById('chat').innerText = "";
 }
 
 function showThomas(){
