@@ -5,23 +5,37 @@ body{
     background-color: silver;
     text-align: center;
 }
+#playerStats{
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: crimson;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    padding: 10px;
+}
 #background{
     background-image: url("breakroom.jpg");
     background-position: center;
     background-size: cover;
-    width: 600px;
-    height: 600px;
+    width: 800px;
+    height: 800px;
     margin-bottom: 10px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 #person{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background-size: contain;
     position: relative;
-    top: 30%;
+    top: 40%;
     left: 35%;
 }
 #controls{
@@ -31,7 +45,7 @@ body{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 70%;
+    top: 80%;
 }
 #controls button{
     font-size: larger;
@@ -41,14 +55,27 @@ body{
 </head>
 <body>
 <h1>Break Room</h1>
+
 <div id="updates"></div>
+
+
 <div id="background">
     <div id="person"></div>
 </div>
+
+<div id="playerStats">
+<p>name: <span id="playerName"></span></p>
+<p>level: <span id="playerLevel"></span></p>
+<p>exp: <span id="playerExp"></span></p>
+
+</div>
+
 <div id="controls">
 <button>buy a snack</button>
 <button>talk to supervisor</button>
 </div>
+
+
 <script>
 let player = {
     name: "marcelo",
