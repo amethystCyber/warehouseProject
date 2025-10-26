@@ -2,23 +2,66 @@
 <head>
 <style>
 body{
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     background-color: silver;
+    text-align: center;
 }
 #background{
     background-image: url("breakroom.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 600px;
+    height: 600px;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#person{
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    position: relative;
+    top: 30%;
+    left: 35%;
+}
+#controls{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70%;
+}
+#controls button{
+    font-size: larger;
+    font-weight: bolder;
 }
 </style>
 </head>
 <body>
 <h1>Break Room</h1>
 <div id="updates"></div>
-<div id="background"></div>
+<div id="background">
+    <div id="person"></div>
+</div>
 <div id="controls">
 <button>buy a snack</button>
 <button>talk to supervisor</button>
 </div>
+<script>
+let player = {
+    name: "marcelo",
+    exp: 0
+}
+
+if (player.exp <= 0) {
+    showThomas();
+}
+
+function showThomas(){
+document.getElementById('person').style.backgroundImage = "url('thomas.png')";
+}
+</script>
 </body>
 </html>
