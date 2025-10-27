@@ -95,57 +95,11 @@ body{
 </div>
 
 
-<script>
-//initially we hide the chat element by default then bring it up when someone talks
+<script src="playerObject.js"></script>
+<script src="breakroom.js"></script>
+<script src="npcThomas.js"></script>
+<script src="warehouseUi.js"></script>
 
-document.getElementById('chat').style.display = "none";
 
-let player = {
-    name: "marcelo",
-    exp: 0
-}
-
-if (player.exp === 0) {
-    showThomas();
-}
-
-let thomasIndex = 0;
-let thomasDialouge = [
-    "Hello! Welcome to Kobayashi Industries.",
-    "Since this is your first day i'll be giving you a small tour.",
-    "OH man! where are my manners my name is Thomas by the way.. whats your name?"
-]
-
-function talkToThomas(){
-    showThomas();
-    showChatBubble();
-    updateChat(thomasDialouge[thomasIndex]);
-    thomasIndex++;
-    if (thomasIndex >= 3) {
-        setTimeout(removeChatBubble, 3200);
-        thomasIndex = 0;
-    }
-}
-
-function showChatBubble(){
-    document.getElementById('chat').style.display = "block";
-}
-
-function removeChatBubble(){
-    document.getElementById('chat').style.display = "none";
-}
-
-function updateChat(message){
-    document.getElementById('chat').innerText = message;
-}
-
-function clearChat(){
-    document.getElementById('chat').innerText = "";
-}
-
-function showThomas(){
-document.getElementById('person').style.backgroundImage = "url('thomas.png')";
-}
-</script>
 </body>
 </html>
