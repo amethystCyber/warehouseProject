@@ -1,3 +1,5 @@
+import { showChatBubble } from './warehouseUi.js';
+
 let thomasIndex = 0;
 let thomasDialouge = [
     "Hello! Welcome to Kobayashi Industries.",
@@ -16,6 +18,6 @@ function talkToThomas(){
     }
 }
 
-function showThomas(){
-document.getElementById('person').style.backgroundImage = "url('thomas.png')";
+export function showThomas(){
+document.getElementById('person').style.backgroundImage = "url('pictures/thomas.png')";
 }

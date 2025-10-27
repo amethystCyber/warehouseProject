@@ -1,15 +1,15 @@
-function showChatBubble(){
+export function showChatBubble(){
     document.getElementById('chat').style.display = "block";
 }
 
-function removeChatBubble(){
+export function removeChatBubble(){
     document.getElementById('chat').style.display = "none";
 }
 
-function updateChat(message){
+export function updateChat(message){
     document.getElementById('chat').innerText = message;
 }
 
-function clearChat(){
+export function clearChat(){
     document.getElementById('chat').innerText = "";
 }
