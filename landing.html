@@ -1,0 +1,89 @@
+<html>
+<head>
+<style>
+  .forms{
+    background-color: black;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    }
+  #register{
+    display: none;
+  }
+  #login{
+    display: none;
+  }
+  body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  #enter{
+    background-color: lightgrey;
+    padding: 10px;
+    width: fit-content;
+    margin-top: 40px;
+
+  }
+  #title{
+    margin-top: 80px;
+  }
+</style>
+</head>
+<body>
+<h1 id="title">welcome to landing page</h1>
+
+<div id="enter">
+  <button onclick="showRegisterForm()">register</button>
+  <button onclick="showLoginForm()">login</button>
+</div>
+
+<div class="forms" id="register">
+<button onclick="closeRegisterForm()">X</button>
+<form action="/register" method="post">
+  <h2>Register</h2>
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username" required><br>
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" required><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password" required><br><br>
+  <input type="submit" value="Register">
+</div>
+
+<div class="forms" id="login">
+<button onclick="closeLoginForm()">X</button>
+<form action="/login" method="post">
+  <h2>Login</h2>
+  <label for="login-username">Username:</label><br>
+  <input type="text" id="login-username" name="username" required><br>
+  <label for="login-password">Password:</label><br>
+  <input type="password" id="login-password" name="password" required><br><br>
+  <input type="submit" value="Login">
+</form>
+</div>
+
+<script>
+function showRegisterForm(){
+  document.getElementById('register').style.display = "block";
+}
+
+function showLoginForm(){
+  document.getElementById('login').style.display = "block";
+}
+
+function closeRegisterForm(){
+  document.getElementById('register').style.display = "none";
+}
+
+function closeLoginForm(){
+    document.getElementById('login').style.display = "none";
+}
+</script>
+
+</body>
+</html>
